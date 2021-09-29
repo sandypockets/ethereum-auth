@@ -1,5 +1,5 @@
-import NavBar from "../NavBar/NavBar";
-import BackgroundSection from "../BackgroundSection/BackgroundSection";
+import NavBar from "../components/NavBar/NavBar";
+import BackgroundSection from "../components/BackgroundSection/BackgroundSection";
 
 export default function Home() {
   return (
