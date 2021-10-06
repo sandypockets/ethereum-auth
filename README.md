@@ -7,13 +7,18 @@ A React nav bar component example that authenticates users with the Ethereum blo
 
 ## Getting started
 Run the following commands:
-
 ```shell
 git clone git@github.com:sandypockets/ethereum-auth.git
 cd ethereum-auth
 yarn install
 ```
 
+Then run the following command to start the development server:
+```shell
+yarn dev
+```
+
+## Components
 If implementing something similar to this in your own project, the `Account` and `EthereumUsername` components contain all the logic you'll need. 
 
 The `NavBar` component simply houses the other components for this demo, and the `BackgroundSection` component's only purpose is to demonstrate that the NavBar is fixed. 
