@@ -17,7 +17,7 @@ export default function NavBar() {
         </Link>
       </div>
       <div className={styles.account}>
-        <a className={styles.anchor}><Account /></a>
+        <Account />
       </div>
     </nav>
   )

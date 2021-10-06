@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import EthereumUsername from "../EthereumUsername/EthereumUsername";
+import styles from "./Account.module.css"
+import Link from 'next/link'
 
 
 export default function Account() {
@@ -34,8 +36,20 @@ export default function Account() {
   }
 
   if (isLoggedIn) {
-    return <EthereumUsername ethAddress={accounts[0]} />
+    return (
+      <div className={styles.ethName}>
+        <EthereumUsername ethAddress={accounts[0]} />
+      </div>
+    )
   } else {
-    return <button onClick={connect}>Connect</button>
+    return (
+      <div className={styles.connect}>
+        <Link href="#">
+          <a onClick={connect}>
+            Connect
+          </a>
+        </Link>
+      </div>
+    )
   }
 }
