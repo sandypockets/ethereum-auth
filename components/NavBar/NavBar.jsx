@@ -1,5 +1,6 @@
 import styles from './NavBar.module.css'
 import Link from 'next/link'
+import Account from "../Account/Account";
 
 export default function NavBar() {
   return (
@@ -15,8 +16,8 @@ export default function NavBar() {
           <a className={styles.anchor}>About</a>
         </Link>
       </div>
-      <div className={styles.linkgroup}>
-        <a className={styles.anchor}>Sign in</a>
+      <div className={styles.account}>
+        <a className={styles.anchor}><Account /></a>
       </div>
     </nav>
   )

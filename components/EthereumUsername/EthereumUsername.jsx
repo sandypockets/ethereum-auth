@@ -9,12 +9,16 @@ const ens = new ENS({
   ensAddress: getEnsAddress("1")
 })
 
-export default function EnsUsername({ ethAddress }) {
+export default function EthereumUsername({ ethAddress }) {
   const [ensName, setEnsName] = useState()
   const [ensAvatar, setEnsAvatar] = useState()
 
+  let formattedAddress
+
   const Icon = () => {
-    return <Jazzicon diameter={32} seed={jsNumberForAddress(ethAddress)} />
+    if (ethAddress) {
+      return <Jazzicon diameter={32} seed={jsNumberForAddress(ethAddress)} />
+    }
   }
 
   async function getName() {
@@ -31,13 +35,16 @@ export default function EnsUsername({ ethAddress }) {
 
   useEffect(() => {
     getName()
+    if (ethAddress) {
+      formattedAddress = `${ethAddress.substr(0, 8)}...${ethAddress.substr(-4)}`
+    }
   }, [ethAddress])
 
   useEffect(() => {
     getAvatar()
   }, [ensName])
 
-  let formattedAddress = `${ethAddress.substr(0, 8)}...${ethAddress.substr(-4)}`
+
 
   return (
     <div className="eth-name">
