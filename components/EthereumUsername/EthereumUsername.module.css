@@ -1,0 +1,9 @@
+.username {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.address {
+    margin: 0 1em;
+}

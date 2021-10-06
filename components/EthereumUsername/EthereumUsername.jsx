@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
-import Image from 'next/image'
 import { web3 } from "../../lib/web3"
 import Jazzicon, { jsNumberForAddress } from 'react-jazzicon'
 import ENS, { getEnsAddress } from '@ensdomains/ensjs'
+import styles from './EthereumUsername.module.css'
 
 const ens = new ENS({
   provider: web3.currentProvider,
@@ -12,8 +12,7 @@ const ens = new ENS({
 export default function EthereumUsername({ ethAddress }) {
   const [ensName, setEnsName] = useState()
   const [ensAvatar, setEnsAvatar] = useState()
-
-  let formattedAddress
+  const [formattedAddress, setFormattedAddress] = useState()
 
   const Icon = () => {
     if (ethAddress) {
@@ -36,7 +35,7 @@ export default function EthereumUsername({ ethAddress }) {
   useEffect(() => {
     getName()
     if (ethAddress) {
-      formattedAddress = `${ethAddress.substr(0, 8)}...${ethAddress.substr(-4)}`
+      setFormattedAddress(`${ethAddress.substr(0, 8)}...${ethAddress.substr(-4)}`)
     }
   }, [ethAddress])
 
@@ -44,22 +43,20 @@ export default function EthereumUsername({ ethAddress }) {
     getAvatar()
   }, [ensName])
 
-
-
   return (
-    <div className="eth-name">
-      <div className="icon">
+    <div className={styles.username}>
+      <div>
         {ensAvatar ? (
           <img src={ensAvatar} />
         ) : (
           <Icon />
         )}
       </div>
-      <div className="name">
-        <span className="primary">
+      <div className={styles.address}>
+        <span>
           {ensName ? ensName : formattedAddress}
         </span>
-        <span className="secondary">
+        <span>
           {ensName ? formattedAddress : ""}
         </span>
       </div>
