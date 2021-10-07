@@ -3,7 +3,6 @@ import EthereumUsername from "../EthereumUsername/EthereumUsername";
 import styles from "./Account.module.css"
 import Link from 'next/link'
 
-
 export default function Account() {
   const [accounts, setAccounts] = useState([])
   const [isLoggedIn, setIsLoggedIn] = useState(false)
